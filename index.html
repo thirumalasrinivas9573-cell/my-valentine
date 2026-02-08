@@ -1,0 +1,252 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Valentine 💗</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+body{
+  margin:0;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.app{
+  width:390px;
+  height:844px;
+  background:linear-gradient(#ff9acb,#ff3f81);
+  overflow:hidden;
+  position:relative;
+}
+.slide{
+  display:none;
+  height:100%;
+  padding:20px;
+  color:white;
+  animation:fade 0.8s ease;
+}
+.slide.active{display:block;}
+@keyframes fade{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+h1,h2{
+  text-align:center;
+}
+p{
+  line-height:1.6;
+  margin-top:12px;
+}
+button{
+  display:block;
+  margin:12px auto;
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:#ff2d6f;
+  color:#fff;
+  font-size:16px;
+}
+input{
+  width:80%;
+  padding:12px;
+  border:none;
+  border-radius:25px;
+  text-align:center;
+  font-size:16px;
+  margin:20px auto;
+  display:block;
+}
+.heart{
+  text-align:center;
+  font-size:90px;
+  animation:beat 1s infinite;
+}
+@keyframes beat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.25)}
+}
+
+/* Scrollable content */
+.scroll{
+  height:68%;
+  overflow-y:auto;
+  padding-right:8px;
+  margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<!-- SLIDE 1 -->
+<div class="slide active" id="s1">
+  <h1>💗 Propose Day 💗</h1>
+  <p style="text-align:center;">
+    Enter the word which you always blush<br>
+    when I’m with you
+  </p>
+  <input id="word" placeholder="Type here">
+  <button onclick="check()">Continue</button>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide" id="s2">
+  <h2>❤️ Do You Know the Meaning of Valentine?</h2>
+
+  <div class="scroll">
+    <p>
+      Valentine is not just a word, not just a single day,
+      and not only about roses, gifts, or celebrations.
+    </p>
+
+    <p>
+      In life, we can do all other work alone.
+      We can focus on career, responsibilities, and daily routines.
+      But when the heart feels low,
+      when emotions break us silently,
+      when there is no one beside us during sadness,
+      that is the moment we search for our partner.
+    </p>
+
+    <p>
+      A true Valentine stands with us in every emotion —
+      joy, sadness, anger, confusion, success, and failure.
+    </p>
+
+    <p>
+      When we succeed, our partner celebrates our success
+      as their own.
+      When we fail or make mistakes,
+      they correct us with love and care.
+    </p>
+
+    <p>
+      True love is not created by the body.
+      It is created when two souls meet deeply,
+      understand each other,
+      respect emotions,
+      and connect purely heart to heart.
+    </p>
+
+    <p>
+      That pure form of love —
+      built with understanding, loyalty,
+      care, and respect —
+      is called <b>True Love</b>.
+    </p>
+
+    <p>
+      And the one who lives that love
+      is called a <b>Valentine</b> ❤️
+    </p>
+  </div>
+
+  <button onclick="go('s3')">Next</button>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide" id="s3">
+  <div class="heart">❤️</div>
+  <h2>My Question to You</h2>
+  <p style="text-align:center;font-size:18px;">
+    Do you hold my hand<br>
+    and never feel regret…
+    <br><br>
+    in any lifetime?
+  </p>
+
+  <button onclick="go('s4')">YES</button>
+  <button onclick="no()">NO</button>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide" id="s4">
+  <h2>💭 Memory Recall</h2>
+
+  <p>
+    Do you remember our first cold coffee date,
+    where time slowed down and the world felt silent?
+  </p>
+
+  <p>
+    Do you remember how we used to text each other endlessly,
+    sometimes without reason,
+    just to feel each other’s presence?
+  </p>
+
+  <p>
+    Do you remember our walking dates,
+    our bus journeys,
+    and the random places
+    where we created memories together?
+  </p>
+
+  <p>
+    We didn’t need special locations.
+    Every place became special
+    because it was <b>us</b>.
+  </p>
+
+  <p>
+    Even today, when I see certain locations,
+    my heart doesn’t see places…
+    it only replays our memories 💗
+  </p>
+
+  <button onclick="go('s5')">Next</button>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide" id="s5">
+  <h1>💖 Thank You 💖</h1>
+
+  <p style="text-align:center;">
+    Thank you for being part of my memories,
+    my present,
+    and my hopes.
+  </p>
+
+  <p style="text-align:center;font-size:20px;">
+    I love you,<br>
+    <b>my Princess 👑</b>
+  </p>
+
+  <p style="text-align:center;">
+    Waiting for your reply…
+  </p>
+</div>
+
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.slide')
+    .forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function check(){
+  if(document.getElementById('word').value.toLowerCase()==='princess'){
+    go('s2');
+  }else{
+    alert('Try again… my Princess 💗');
+  }
+}
+
+function no(){
+  alert('Even your NO sounds cute… my heart still chooses you 💖');
+}
+</script>
+
+</body>
+</html>
